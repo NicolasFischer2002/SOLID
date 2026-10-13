@@ -14,6 +14,8 @@
             Value = formattedValue;
         }
 
+        private static string Format(string? value) => value?.Trim() ?? string.Empty;
+
         private void Validate(string? value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -48,7 +50,6 @@
             }
         }
 
-        private static string Format(string? value) => value?.Trim() ?? string.Empty;
         public override string ToString() => Value;
     }
 }
