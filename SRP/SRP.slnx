@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Codes/">
+    <Project Path="Codes/SRP/SRP.csproj" Id="be220500-7c16-445c-8cc0-289f7cc0b334" />
+  </Folder>
+  <Folder Name="/Documentation/">
+    <File Path="Documentation/Single Responsibility Principle.md" />
+  </Folder>
+</Solution>
