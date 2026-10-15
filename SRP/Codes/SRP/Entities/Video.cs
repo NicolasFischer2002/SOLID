@@ -3,18 +3,18 @@ using SRP.ValueObjects;
 
 namespace SRP.Entities
 {
-    internal class YouTubeVideo
+    internal class Video
     {
         public Guid Id { get; }
-        public YouTubeVideoTitle Title { get; }
-        public YouTubeVideoDescription Description { get; }
+        public VideoTitle Title { get; }
+        public VideoDescription Description { get; }
         public VideoType Type { get; }
         public Uri Link { get; }
 
-        public YouTubeVideo(
+        public Video(
             Guid id, 
-            YouTubeVideoTitle title, 
-            YouTubeVideoDescription description, 
+            VideoTitle title, 
+            VideoDescription description, 
             VideoType type,
             Uri link)
         {

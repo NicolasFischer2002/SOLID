@@ -11,15 +11,21 @@ namespace SRP.Entities
             PlaylistName playlistName,
             CreationDateUTC creationDateUTC,
             PlaylistVisibility visibility,
-            YouTubeVideos videos)
-            : base(id, userId, playlistName, creationDateUTC, visibility, videos)
+            Videos videos,
+            Uri link)
+            : base(id, userId, playlistName, creationDateUTC, visibility, videos, link)
         {
 
         }
 
-        public override void AddVideo(YouTubeVideo video)
+        public override void AddVideo(Video video)
         {
-            throw new NotImplementedException();
+            if (video.Type != VideoType.Music)
+                throw new ArgumentException(
+                    "Only music videos can be added to a YouTube Music playlist.", 
+                    nameof(video));
+
+            Videos.Add(video);
         }
     }
 }

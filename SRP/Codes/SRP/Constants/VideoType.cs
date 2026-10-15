@@ -4,6 +4,6 @@
     {
         Video,
         Music,
-        MusicVideo
+        Short
     }
 }

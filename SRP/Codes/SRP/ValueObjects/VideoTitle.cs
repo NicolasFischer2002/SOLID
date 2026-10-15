@@ -1,11 +1,11 @@
 ﻿namespace SRP.ValueObjects
 {
-    internal sealed record YouTubeVideoDescription
+    internal sealed record VideoTitle
     {
         public string Value { get; }
-        private const int MaxLength = 200;
+        private const int MaxLength = 100;
 
-        public YouTubeVideoDescription(string value)
+        public VideoTitle(string value)
         {
             var formattedValue = Format(value);
             Validate(formattedValue);
@@ -20,14 +20,14 @@
             if (string.IsNullOrWhiteSpace(value))
             {
                 throw new ArgumentException(
-                    "YouTube video description cannot be null or whitespace.",
+                    "YouTube video title cannot be null or whitespace.",
                     nameof(value));
             }
 
             if (value.Length > MaxLength)
             {
                 throw new ArgumentException(
-                    $"YouTube video description cannot exceed {MaxLength} characters.",
+                    $"YouTube video title cannot exceed {MaxLength} characters.",
                     nameof(value));
             }
         }

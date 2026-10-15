@@ -10,7 +10,8 @@ namespace SRP.Entities
         protected PlaylistName PlaylistName { get; }
         protected CreationDateUTC CreationDateUTC { get; }
         protected PlaylistVisibility Visibility { get; }
-        protected YouTubeVideos Videos { get; }
+        protected Videos Videos { get; }
+        protected Uri Link { get; }
 
         protected Playlist(
             Guid id,
@@ -18,7 +19,8 @@ namespace SRP.Entities
             PlaylistName playlistName, 
             CreationDateUTC creationDateUTC,
             PlaylistVisibility visibility,
-            YouTubeVideos videos)
+            Videos videos,
+            Uri link)
         {
             if (!Enum.IsDefined(visibility))
             {
@@ -41,8 +43,9 @@ namespace SRP.Entities
             CreationDateUTC = creationDateUTC ?? throw new ArgumentNullException(nameof(creationDateUTC));
             Visibility = visibility;
             Videos = videos ?? throw new ArgumentNullException(nameof(videos));
+            Link = link ?? throw new ArgumentNullException(nameof(link));
         }
 
-        public abstract void AddVideo(YouTubeVideo video);
+        public abstract void AddVideo(Video video);
     }
 }
