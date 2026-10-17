@@ -1,4 +1,5 @@
-﻿using SRP.Constants;
+﻿using SRP.Collections;
+using SRP.Constants;
 using SRP.ValueObjects;
 
 namespace SRP.Entities
@@ -8,8 +9,8 @@ namespace SRP.Entities
         public PlaylistYoutube(
             Guid id,
             Guid userId,
-            PlaylistName playlistName, 
-            CreationDateUTC creationDateUTC, 
+            PlaylistName playlistName,
+            CreationDateUTC creationDateUTC,
             PlaylistVisibility visibility,
             Videos videos,
             Uri link)
@@ -20,7 +21,9 @@ namespace SRP.Entities
 
         public override void AddVideo(Video video)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(video, nameof(video));
+
+            AddVideoToCollection(video);
         }
     }
 }

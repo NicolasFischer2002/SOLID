@@ -1,10 +1,12 @@
-﻿namespace SRP.ValueObjects
+﻿
+namespace SRP.ValueObjects
 {
     internal sealed record PlaylistName
     {
-        public string Value { get; }
         private const int MaxLength = 50;
-        private readonly char[] InvalidCharacters = ['@', '&', '"', '\''];
+        private const string InvalidCharacters = "@&\"'";
+
+        public string Value { get; }
 
         public PlaylistName(string? value)
         {
@@ -16,7 +18,7 @@
 
         private static string Format(string? value) => value?.Trim() ?? string.Empty;
 
-        private void Validate(string? value)
+        private static void Validate(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -37,7 +39,7 @@
             }
         }
 
-        private void ValidateInvalidCharacters(string value)
+        private static void ValidateInvalidCharacters(string value)
         {
             foreach (var invalidChar in InvalidCharacters)
             {

@@ -13,9 +13,11 @@
         private static void Validate(DateTime value)
         {
             if (value.Kind != DateTimeKind.Utc)
-            {
-                throw new ArgumentException("Creation date must be in UTC.", nameof(value));
-            }
+                throw new ArgumentException(
+                    "Creation date must be in UTC.",
+                    nameof(value));
         }
+
+        public override string ToString() => Value.ToString("O");
     }
 }
